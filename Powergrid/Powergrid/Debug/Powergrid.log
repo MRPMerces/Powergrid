@@ -1,0 +1,7 @@
+﻿  stage2.cpp
+C:\Users\marcr\source\repos\Powergrid\Powergrid\stage2.cpp(93,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\marcr\source\repos\Powergrid\Powergrid\stage2.cpp(129,31): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\marcr\source\repos\Powergrid\Powergrid\stage2.cpp(165,35): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  vecpowerplants.cpp
+  Generating Code...
+  Powergrid.vcxproj -> C:\Users\marcr\source\repos\Powergrid\Debug\Powergrid.exe
