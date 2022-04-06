@@ -9,9 +9,9 @@
 #include "Game.h"
 #include "Player.h"
 
-void uiStage2(Player& P);
-void uiStage3(Player& P);
-void uiStage4(Player& P);
+void uiStage2(Player& player);
+void uiStage3(Player& player);
+void uiStage4(Player& player);
 
-void uiPlantInfo(Powerplant& P);
+void uiPlantInfo(Powerplant& Powerplant);
 #endif

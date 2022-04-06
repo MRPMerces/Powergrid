@@ -12,11 +12,11 @@
 #include "ui.h"
 
 void stage2();
-void buyResources(Player& P);
-void buyCoalplant(Player& P, int buyCoalplant);
-void buyOil(Player& P, int buyOil);
-void buyGarbage(Player& P, int buyGarbage);
-void buyUranium(Player& P, int buyUranium);
+void buyResources(Player&);
+void buyCoal(Player&, int);
+void buyOil(Player&, int);
+void buyGarbage(Player&, int);
+void buyUranium(Player&, int);
 
 //External dependencies
 extern const std::string textDivider;

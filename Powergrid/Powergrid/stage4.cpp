@@ -4,63 +4,79 @@
 void stage4() {
 
 	// Stage loop
-	for (Player& P : vec_Player) {
-		uiStage4(P);
-		powerPowerplant(P);
+	for (Player& player : players) {
+		uiStage4(player);
+		powerPowerplant(player);
 
-		std::cout << "You powered: " << P.get_citiesPowered() << "cities!" << std::endl;
+		std::cout << "You powered: " << player.get_citiesPowered() << "cities!" << std::endl;
 
 		// Add power money to player
-		P.add_money(P.get_citiesPowered() * 20);
+		player.add_money(player.get_citiesPowered() * 20);
 	}
+
 	winCondition();
 	update();
 	system("CLS");
 }
 
 // Power playerPowerplant
-void powerPowerplant(Player& P) {
+void powerPowerplant(Player& player) {
+	char powerPowerPlant;
 
-	char cin_powerPowerPlant;
-
-	for (Powerplant& PPP : P.get_vec_playerPowerplant()) {
+	for (Powerplant& powerplant : player.get_playerPowerplants()) {
 
 		// Check if player has enough fuel to power the powerplant
-		if (P.get_fuel(PPP.get_FuelType()) < PPP.get_fuelUsage()) continue;
+		if (player.get_fuel(powerplant.get_FuelType()) < powerplant.get_fuelUsage()) {
+			continue;
+		}
 
 		// Player is ai
 		/// if (P.playerType == "ai") aiPowerPowerplant(P);
-		if (P.get_playerType() == Ai) cin_powerPowerPlant = 'y';
+		if (player.get_playerType() == Ai) {
+			powerPowerPlant = 'y';
+		}
 
 		// Player is human
 		else {
-			uiPlantInfo(PPP);
+			uiPlantInfo(powerplant);
 			std::cout << "Do you want to power thisPowerplant? y/n" << std::endl;
 
-			std::cin >> cin_powerPowerPlant;
+			std::cin >> powerPowerPlant;
 		}
 
-		if (cin_powerPowerPlant == 'y') {
+		switch (powerPowerPlant)
+		{
+		case 'y':
 			// Find the FuelType
-			if (PPP.get_FuelType() == Wind) std::cout << "This plant is powered by the free wind!" << std::endl;
-			if (PPP.get_FuelType() == Hybrid) {
-				int cin_hybrid;
-
-				std::cout << "How much Coalplant do you want to use? The rest will be oil!" << std::endl;
-				std::cin >> cin_hybrid;
-
-				// Check if input is greater that the fuel usage
-				if (cin_hybrid > PPP.get_fuelUsage()) cin_hybrid = PPP.get_fuelUsage();
-				P.add_fuel(Coal, -cin_hybrid);
-				P.add_fuel(Oil, cin_hybrid - PPP.get_fuelUsage());
+			if (powerplant.get_FuelType() == Wind) {
+				std::cout << "This plant is powered by the free wind!" << std::endl;
 			}
 
-			else P.add_fuel(PPP.get_FuelType(), PPP.get_fuelUsage() );
+			else if (powerplant.get_FuelType() == Hybrid) {
+				int coal;
 
-			P.add_citiesPowered(PPP.get_citiesPowered());
+				std::cout << "How much coal do you want to use? The rest will be oil!" << std::endl;
+				std::cin >> coal;
+
+				// Check if input is greater that the fuel usage
+				if (coal > powerplant.get_fuelUsage()) {
+					coal = powerplant.get_fuelUsage();
+				}
+
+				player.add_fuel(Coal, -coal);
+				player.add_fuel(Oil, coal - powerplant.get_fuelUsage());
+			}
+
+			else player.add_fuel(powerplant.get_FuelType(), powerplant.get_fuelUsage());
+
+			player.add_citiesPowered(powerplant.get_citiesPowered());
+
+		case 'n':
+			break;
+
+		default:
+			std::cout << "You typed in something invalid" << std::endl;
 		}
-		else if (cin_powerPowerPlant == 'n');
-		else std::cout << "You typed in something invalid" << std::endl;
 	}
 }
 
@@ -71,16 +87,16 @@ void winCondition() {
 
 		Player pos;
 
-		for (Player& P : vec_Player) {
-			if (mostCitiesPowered < P.get_citiesPowered()) {
-				mostCitiesPowered = P.get_citiesPowered();
-				pos = P;
+		for (Player player : players) {
+			if (mostCitiesPowered < player.get_citiesPowered()) {
+				mostCitiesPowered = player.get_citiesPowered();
+				pos = player;
 			}
 
 			// Tie
-			if (mostCitiesPowered == P.get_citiesPowered()) if (P.get_money() > pos.get_money()) {
-				mostCitiesPowered = P.get_citiesPowered();
-				pos = P;
+			if (mostCitiesPowered == player.get_citiesPowered() && player.get_money() > pos.get_money()) {
+				mostCitiesPowered = player.get_citiesPowered();
+				pos = player;
 			}
 		}
 		system("CLS");
@@ -103,30 +119,30 @@ void update() {
 		game.add_uranium(1);
 	}
 
-	if (game.get_era() == 2) {
+	else if (game.get_era() == 2) {
 		game.add_coal(6);
 		game.add_uranium(2);
 	}
 
-	if (game.get_era() == 3) {
+	else if (game.get_era() == 3) {
 		game.add_coal(5);
 		game.add_uranium(2);
 	}
 
 	// Draw a new_powerplant card fromPowerplant deck
 	if (game.get_era() < 3) {
-		vec_Powerplant.push_back(vec_powerplantMarked[vec_powerplantMarked.size() - 1]);
-		vec_powerplantMarked.erase(vec_powerplantMarked.begin());
-		vec_powerplantMarked.push_back(vec_Powerplant[0]);
-		vec_Powerplant.erase(vec_Powerplant.begin());
+		powerplants.push_back(powerplantMarked[powerplantMarked.size() - 1]);
+		powerplantMarked.erase(powerplantMarked.begin());
+		powerplantMarked.push_back(powerplants[0]);
+		powerplants.erase(powerplants.begin());
 	}
 
 	// if era = 3 the weakestPowerplant will be erased
 	if (game.get_era() == 3) {
-		vec_powerplantMarked.erase(vec_Powerplant.begin());
-		vec_powerplantMarked.push_back(vec_Powerplant[0]);
+		powerplantMarked.erase(powerplants.begin());
+		powerplantMarked.push_back(powerplants[0]);
 	}
 
 	// Find turnorder;
-	sort(vec_Player.begin(), vec_Player.end(), comparator);
+	sort(players.begin(), players.end(), comparator);
 }

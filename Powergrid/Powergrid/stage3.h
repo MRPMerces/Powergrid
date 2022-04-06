@@ -12,7 +12,7 @@
 #include "ui.h"
 
 void stage3();
-void buyCities(Player& P, int buyCities);
+void buyCities(Player&, int);
 
 //External dependencies
 extern const std::string textDivider;

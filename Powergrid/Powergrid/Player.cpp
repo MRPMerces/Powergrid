@@ -1,6 +1,6 @@
 #include "Player.h"
 
-std::vector <Player> vec_Player;
+std::vector <Player> players;
 
 // Constructor
 Player::Player(const std::string& name, playerType type) {
@@ -169,7 +169,7 @@ void Player::set_passed(bool p) {
 }
 
 // Playerpowerplant vector
-std::vector<Powerplant> Player::get_vec_playerPowerplant() const {
+std::vector<Powerplant> Player::get_playerPowerplants() const {
 	return vec_playerPowerplant;
 }
 
@@ -185,7 +185,7 @@ void Player::sort_playerPowerplant() {
 	sort(vec_playerPowerplant.begin(), vec_playerPowerplant.end());
 }
 
-void players() {
+void processPlayers() {
 
 	int cin_inputAmountOfAi = 1;
 	//string std::cin_name;
@@ -195,22 +195,22 @@ void players() {
 
 	//while (std::cin){
 		//newPlayer.set_name("std::cin_name");
-	vec_Player.push_back(Player("Merces", Human));
+	players.push_back(Player("Merces", Human));
 	//}
 
 	// For loop for adding ai
 	for (int i = 1; i < cin_inputAmountOfAi + 1; i++) {
 		// Concatenate a string and int
 		std::string name = "AI" + std::to_string(i);
-		vec_Player.push_back(Player("name", Ai));
+		players.push_back(Player("name", Ai));
 	}
 
 	// Shuffles the vector
-	shuffle(begin(vec_Player), end(vec_Player), rng);
+	shuffle(begin(players), end(players), rng);
 
 	// Prints all players
 	std::cout << textDivider << std::endl;
-	for (Player& P : vec_Player) {
+	for (Player& P : players) {
 		std::cout << "Player name: " << P.get_name() << std::endl;
 		std::cout << "Player type: " << P.get_playerType() << std::endl;
 		std::cout << textDivider << std::endl;
@@ -220,12 +220,12 @@ void players() {
 // Update the fuel storage for every player
 void updatePlayerInfo() {
 
-	for (Player& P : vec_Player) {
+	for (Player& P : players) {
 		P.reset_fuelStorage();
 		P.reset_totalPoweredCities();
 		P.reset_citiesPowered();
 
-		for (Powerplant& PPP : P.get_vec_playerPowerplant()) {
+		for (Powerplant& PPP : P.get_playerPowerplants()) {
 			if (PPP.get_FuelType() == Coalplant) P.add_fuelStorage(Coal, PPP.get_fuelUsage() * 2);
 			if (PPP.get_FuelType() == Oil) P.add_fuelStorage(Oil, PPP.get_fuelUsage() * 2);
 			if (PPP.get_FuelType() == Garbage) P.add_fuelStorage(Garbage, PPP.get_fuelUsage() * 2);
@@ -240,7 +240,7 @@ void updatePlayerInfo() {
 int highestplantId(const Player& p) {
 	int highestPlayerplantId = 0;
 
-	for (Powerplant& PPP : p.get_vec_playerPowerplant())
+	for (Powerplant& PPP : p.get_playerPowerplants())
 		if (highestPlayerplantId < PPP.get_plantId())
 			highestPlayerplantId = PPP.get_plantId();
 	return highestPlayerplantId;

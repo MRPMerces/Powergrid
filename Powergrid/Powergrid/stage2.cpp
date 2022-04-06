@@ -4,107 +4,91 @@
 void stage2() {
 
 	//Stage loop
-	for (Player& P : vec_Player) {
+	for (Player& player : players) {
 
 		updatePlayerInfo();
-		uiStage2(P);
-		buyResources(P);
+		uiStage2(player);
+		buyResources(player);
 	}
 
 	system("CLS");
 }
 
-void buyResources(Player& P) {
+void buyResources(Player& player) {
 
 	// Player is ai
-	if (P.get_playerType() == Ai) {
-		aiBuyFuel(P);
+	if (player.get_playerType() == Ai) {
+		aiBuyFuel(player);
+		return;
 	}
 
-	// Player is human
-	else {
-		int cin_buyCoalplant;
-		int cin_buyOil;
-		int cin_buyGarbage;
-		int cin_buyUranium;
+	int coal, oil, garbage, uranium;
 
-		std::cout << "You can store: " << P.get_fuelStorage(Coal) << " Coalplant" << std::endl;
-		std::cout << "How much Coalplant do you want do buy?" << std::endl;
-		std::cin >> cin_buyCoalplant;
-		buyCoalplant(P, cin_buyCoalplant);
+	std::cout << "You can store: " << player.get_fuelStorage(Coal) << " Coalplant" << std::endl;
+	std::cout << "How much Coal do you want do buy?" << std::endl;
+	std::cin >> coal;
+	buyCoal(player, coal);
 
-		// Update ui
-		uiStage2(P);
+	// Update ui
+	uiStage2(player);
 
-		std::cout << "You can store: " << P.get_fuelStorage(Oil) << " oil" << std::endl;
-		std::cout << "How much oil do you want do buy?" << std::endl;
-		std::cin >> cin_buyOil;
-		buyOil(P, cin_buyOil);
+	std::cout << "You can store: " << player.get_fuelStorage(Oil) << " oil" << std::endl;
+	std::cout << "How much oil do you want do buy?" << std::endl;
+	std::cin >> oil;
+	buyOil(player, oil);
 
-		// Update ui
-		uiStage2(P);
+	// Update ui
+	uiStage2(player);
 
-		std::cout << "You can store: " << P.get_fuelStorage(Garbage) << " garbage" << std::endl;
-		std::cout << "How much garbage do you want do buy?" << std::endl;
-		std::cin >> cin_buyGarbage;
-		buyGarbage(P, cin_buyGarbage);
+	std::cout << "You can store: " << player.get_fuelStorage(Garbage) << " garbage" << std::endl;
+	std::cout << "How much garbage do you want do buy?" << std::endl;
+	std::cin >> garbage;
+	buyGarbage(player, garbage);
 
-		// Update ui
-		uiStage2(P);
+	// Update ui
+	uiStage2(player);
 
-		std::cout << "You can store: " << P.get_fuelStorage(Uranium) << " uranium" << std::endl;
-		std::cout << "How much uranium do you want do buy?" << std::endl;
-		std::cin >> cin_buyUranium;
-		buyUranium(P, cin_buyUranium);
+	std::cout << "You can store: " << player.get_fuelStorage(Uranium) << " uranium" << std::endl;
+	std::cout << "How much uranium do you want do buy?" << std::endl;
+	std::cin >> uranium;
+	buyUranium(player, uranium);
 
-		// Update ui
-		uiStage2(P);
-	}
+	// Update ui
+	uiStage2(player);
 }
 
-// Buy Coalplant
-void buyCoalplant(Player& P, int buyCoalplant) {
-
-	for (int i = 0; i < buyCoalplant; i++) {
+void buyCoal(Player& player, int coal) {
+	for (int i = 0; i < coal; i++) {
 
 		// Check if player can store more fuel
-		if (P.get_fuel(Coal) == P.get_fuelStorage(Coal)) {
+		if (player.get_fuel(Coal) == player.get_fuelStorage(Coal)) {
 			std::cout << "You cant store more Coal!" << std::endl;
 			break;
 		}
 
-		// Check if there is no Coalplant left
+		// Check if there is no coal left
 		if (game.get_amountOfCoal() == 0) {
-			std::cout << "There is no Coalplant left" << std::endl;
+			std::cout << "There is no coal left" << std::endl;
 			break;
 		}
 
-		else {
-
-			double Coalplant = game.get_amountOfCoal();
-
-			// Check if player can afford more Coalplant
-			if (P.get_money() < ceil(Coalplant / 3) - 9) {
-				std::cout << "You can't afford more Coal!" << std::endl;
-				break;
-			}
-
-			else {
-				P.add_money(ceil(Coalplant / 3) - 9);
-				game.add_coal(-1);
-				P.add_fuel(Coal, 1);
-			}
+		// Check if player can afford more coal
+		if (player.get_money() < ceil(game.get_amountOfCoal() / 3) - 9) {
+			std::cout << "You can't afford more Coal!" << std::endl;
+			break;
 		}
+
+		player.add_money(ceil(game.get_amountOfCoal() / 3) - 9);
+		game.add_coal(-1);
+		player.add_fuel(Coal, 1);
 	}
 }
 
-// Buy oil
-void buyOil(Player& P, int buyOil) {
-
-	for (int i = 0; i < buyOil; i++) {
+void buyOil(Player& player, int oil) {
+	for (int i = 0; i < oil; i++) {
 
 		// Check if player can store more fuel
-		if (P.get_fuel(Oil) == P.get_fuelStorage(Oil)) {
+		if (player.get_fuel(Oil) == player.get_fuelStorage(Oil)) {
 			std::cout << "You cant store more oil!" << std::endl;
 			break;
 		}
@@ -115,32 +99,23 @@ void buyOil(Player& P, int buyOil) {
 			break;
 		}
 
-		else {
-
-			double oil = game.get_amountOfOil();
-
-			// Check if player can afford more oil
-			if (P.get_money() < ceil(oil / 3) - 9) {
-				std::cout << "You can't afford more oil!" << std::endl;
-				break;
-			}
-
-			else {
-				P.add_money(ceil(oil / 3) - 9);
-				game.add_oil(-1);
-				P.add_fuel(Oil, 1);
-			}
+		// Check if player can afford more oil
+		if (player.get_money() < ceil(game.get_amountOfOil() / 3) - 9) {
+			std::cout << "You can't afford more oil!" << std::endl;
+			break;
 		}
+
+		player.add_money(ceil(game.get_amountOfOil() / 3) - 9);
+		game.add_oil(-1);
+		player.add_fuel(Oil, 1);
 	}
 }
 
-// Buy garbage
-void buyGarbage(Player& P, int buyGarbage) {
-
-	for (int i = 0; i < buyGarbage; i++) {
+void buyGarbage(Player& player, int garbage) {
+	for (int i = 0; i < garbage; i++) {
 
 		// Check if player can store more fuel
-		if (P.get_fuel(Garbage) == P.get_fuelStorage(Garbage)) {
+		if (player.get_fuel(Garbage) == player.get_fuelStorage(Garbage)) {
 			std::cout << "You cant store more garbage!" << std::endl;
 			break;
 		}
@@ -151,67 +126,65 @@ void buyGarbage(Player& P, int buyGarbage) {
 			break;
 		}
 
-		else {
-
-			double garbage = game.get_amountOfGarbage();
-
-			// Check if player can afford more garbage
-			if (P.get_money() < ceil(garbage / 3) - 9) {
-				std::cout << "You cant afford more garbage!" << std::endl;
-				break;
-			}
-
-			else {
-				P.add_money(ceil(garbage / 3) - 9);
-				game.add_garbage(-1);
-				P.add_fuel(Garbage, 1);
-			}
+		// Check if player can afford more garbage
+		if (player.get_money() < ceil(game.get_amountOfGarbage() / 3) - 9) {
+			std::cout << "You cant afford more garbage!" << std::endl;
+			break;
 		}
+
+		player.add_money(ceil(game.get_amountOfGarbage() / 3) - 9);
+		game.add_garbage(-1);
+		player.add_fuel(Garbage, 1);
 	}
 }
 
 // Buy uranium.
-void buyUranium(Player& P, int buyUranium) {
+void buyUranium(Player& player, int uranium) {
 
-	for (int i = 0; i < buyUranium; i++) {
+	for (int i = 0; i < uranium; i++) {
 
-		int setMoney = 0;
+		int price = 0;
 
 		// Check if player can store more uranium
-		if (P.get_fuel(Uranium) == P.get_fuelStorage(Uranium)) {
+		if (player.get_fuel(Uranium) == player.get_fuelStorage(Uranium)) {
 			std::cout << "You cant store more uranium!" << std::endl;
 			break;
 		}
 
 		switch (game.get_amountOfUranium()) {
-
 		case 0:
-		{
 			std::cout << "There is no uranium left" << std::endl;
 			break;
-		}
 
-		case 1: setMoney = 16;
-		case 2: setMoney = 14;
-		case 3: setMoney = 12;
-		case 4: setMoney = 10;
+		case 1:
+			price = 16;
+
+		case 2:
+			price = 14;
+
+		case 3:
+			price = 12;
+
+		case 4:
+			price = 10;
+
 		case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
-			setMoney = 13 - game.get_amountOfUranium();
+			price = 13 - game.get_amountOfUranium();
 		}
 
 		// Check if player can afford more uranium
-		if (P.get_money() < setMoney) {
+		if (player.get_money() < price) {
 			std::cout << "You can't afford more uranium!" << std::endl;
 			break;
 		}
 
-		game.add_uranium(-setMoney);
-		P.add_fuel(Uranium, 1);
+		game.add_uranium(-price);
+		player.add_fuel(Uranium, 1);
 	}
 
 	// Each centrifuge produces 1 uranium per turn.
-	if (P.get_centrifuges() > 0) {
-		std::cout << P.get_name() << " You got: " << P.get_centrifuges() << "Uranium from centrifuges" << std::endl;
-		P.add_fuel(Uranium, P.get_centrifuges());
+	if (player.get_centrifuges() > 0) {
+		std::cout << player.get_name() << " You got: " << player.get_centrifuges() << "Uranium from centrifuges" << std::endl;
+		player.add_fuel(Uranium, player.get_centrifuges());
 	}
 }

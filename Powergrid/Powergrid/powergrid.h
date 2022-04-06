@@ -11,6 +11,6 @@
 #include "stage3.h"
 #include "stage4.h"
 
-void players();
+void processPlayers();
 
 #endif

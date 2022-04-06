@@ -8,7 +8,7 @@ int priceOfPlant;
 bool choosedPlant;
 bool auctioning;
 
-std::vector <Player> vec_PlayerAuction;
+std::vector <Player> playerAuction;
 
 // Stage 1 buyPowerplant
 void stage1() {
@@ -16,213 +16,229 @@ void stage1() {
 	choosePowerPlant();
 
 	// Sets all Player.passed to false
-	for (Player& P : vec_Player) P.set_passed(false);
+	for (Player& P : players) {
+		P.set_passed(false);
+	}
 
 	passed = 0;
 
 	system("CLS");
 }
 
-void powerplantMarked() {
-
+void processPowerplantMarked() {
 	// Repopulate thePowerplant marked whith Powerplants acording to the era
-	if (game.get_era() != 3) {
-		while (vec_powerplantMarked.size() < 8) {
-			vec_powerplantMarked.push_back(vec_Powerplant[0]);
-			vec_Powerplant.erase(vec_Powerplant.begin());
-		}
-	}
-
-	else {
-		while (vec_powerplantMarked.size() < 6) {
-			vec_powerplantMarked.push_back(vec_Powerplant[0]);
-			vec_Powerplant.erase(vec_Powerplant.begin());
-		}
+	while (powerplantMarked.size() < game.get_era() != 3 ? 8 : 6) {
+		powerplantMarked.push_back(powerplants[0]);
+		powerplants.erase(powerplants.begin());
 	}
 
 	// Sort vec_powerplantMarked;
-	sort(vec_powerplantMarked.begin(), vec_powerplantMarked.end());
+	sort(powerplantMarked.begin(), powerplantMarked.end());
 
-	// Prints thePowerplant marked
+	// Prints the Powerplant marked
 	std::cout << textDivider << std::endl;
 	std::cout << "Current market" << std::endl;
 
 	for (int i = 0; i < 8; i++) {
-
-		Powerplant PPM = vec_powerplantMarked[i];
+		Powerplant powerplant = powerplantMarked[i];
 
 		// Find somePowerplant stats
-		if (i <= 3) if (PPM.get_citiesPowered() > vec_Powerplant[mostPowerfullPowerplant].get_citiesPowered()) mostPowerfullPowerplant = i;
-		if (i == 4) std::cout << "Future market" << std::endl;
+		if (i <= 3 && powerplant.get_citiesPowered() > powerplants[mostPowerfullPowerplant].get_citiesPowered()) {
+			mostPowerfullPowerplant = i;
+		}
+
+		if (i == 4) {
+			std::cout << "Future market" << std::endl;
+		}
 
 		// era 3 card
-		if (PPM.get_plantId() == 0 && game.get_era() == 2) {
+		if (powerplant.get_plantId() == 0 && game.get_era() == 2) {
 			game.set_eraChange(true);
 			std::cout << "Era 3 is triggered!" << std::endl;
-			vec_powerplantMarked.erase(vec_powerplantMarked.begin() + i);
+			powerplantMarked.erase(powerplantMarked.begin() + i);
 		}
 
 		std::cout << textDivider << std::endl;
-		uiPlantInfo(PPM);
-		std::cout << "Price of plant: " << PPM.get_plantId() << std::endl;
+		uiPlantInfo(powerplant);
+		std::cout << "Price of plant: " << powerplant.get_plantId() << std::endl;
 		std::cout << textDivider << std::endl;
 	}
 }
 
 // Choosing a powerplanbt to auction
 void choosePowerPlant() {
+	int chosenPlantID;
 
-	int cin_powerPlantChoose;
+	while (passed < players.size()) {
+		for (Player& P : players) {
+			if (!P.get_passed()) {
 
-	while (passed < vec_Player.size()) for (Player& P : vec_Player) if (!P.get_passed()) {
+				processPowerplantMarked();
 
-		powerplantMarked();
-
-		// Chech if player have enough money
-		if (P.get_money() < vec_powerplantMarked[0].get_plantId()) {
-			system("CLS");
-			std::cout << P.get_name() << " You dont have enouth money to buy a plant!" << std::endl;
-			P.set_passed(true);
-			passed++;
-			break;
-		}
-
-		// Tell auction that the player can raise by 0
-		choosedPlant = true;
-
-		// Player is ai
-		if (P.get_playerType() == Ai) auction(mostPowerfullPowerplant);
-		///{  int aiChoosePowerplant( int mostPowerfullPowerplant); }
-
-		// Player is human
-		else {
-			std::cout << "Player money: " << P.get_money() << std::endl;
-			std::cout << "Player name: " << P.get_name() << std::endl;
-
-			std::cout << "Which Powerplant do you want do buy? 0 for pass!" << std::endl;
-			std::cin >> cin_powerPlantChoose;
-
-			if (cin_powerPlantChoose == 0) {
-
-				// Player cant bid again if passed
-				P.set_passed(true);
-				passed++;
-			}
-
-			/// 4 has to be a variable when era 3 ( all 6Powerplant are avalible) is triggered / implemented
-			else for (int i = 0; i < 4; i++) {
-				if (cin_powerPlantChoose == vec_powerplantMarked[i].get_plantId()) {
-					auction(i);
+				// Chech if player have enough money
+				if (P.get_money() < powerplantMarked[0].get_plantId()) {
+					system("CLS");
+					std::cout << P.get_name() << " You dont have enouth money to buy a plant!" << std::endl;
+					P.set_passed(true);
+					passed++;
 					break;
 				}
 
-				// get_plantId() other than the 4 in the current market was chosen
-				if (i == 3) {
-					std::cout << "Bad plant id" << std::endl;
-					choosePowerPlant();
+				// Tell auction that the player can raise by 0
+				choosedPlant = true;
+
+				// Player is ai
+				if (P.get_playerType() == Ai) auction(mostPowerfullPowerplant);
+				///{  int aiChoosePowerplant( int mostPowerfullPowerplant); }
+
+				// Player is human
+				else {
+					std::cout << "Player money: " << P.get_money() << std::endl;
+					std::cout << "Player name: " << P.get_name() << std::endl;
+
+					std::cout << "Which Powerplant do you want do buy? 0 for pass!" << std::endl;
+					std::cin >> chosenPlantID;
+
+					if (chosenPlantID == 0) {
+						// Player cant bid again if passed
+						P.set_passed(true);
+						passed++;
+					}
+
+					/// 4 has to be a variable when era 3 ( all 6Powerplant are avalible) is triggered / implemented
+					else {
+						for (int i = 0; i < 4; i++) {
+							if (chosenPlantID == powerplantMarked[i].get_plantId()) {
+								auction(i);
+								break;
+							}
+
+							// get_plantId() other than the 4 in the current market was chosen
+							if (i == 3) {
+								std::cout << "Bad plant id" << std::endl;
+								choosePowerPlant();
+							}
+						}
+					}
 				}
 			}
 		}
 	}
 }
 
-// Auction
-void auction(int choosenPlant) {
+void auction(int choosenPlantID) {
+	Powerplant powerplant = powerplantMarked[choosenPlantID];
+	playerAuction = players;
 
-	Powerplant CPP = vec_powerplantMarked[choosenPlant];
-	vec_PlayerAuction = vec_Player;
-
-	priceOfPlant = CPP.get_plantId();
+	priceOfPlant = powerplant.get_plantId();
 
 	auctioning = true;
 
-	std::cout << "Auction for plant: " << CPP.get_plantId() << std::endl;
+	std::cout << "Auction for plant: " << powerplant.get_plantId() << std::endl;
 
 	while (auctioning) {
-
 		int deltaPriceOfPlant = priceOfPlant;
 
 		// Check if player can partake in auction and then remove the player if they cant
-		for (int p = 0; p < vec_PlayerAuction.size(); p++)
-			if (vec_PlayerAuction[p].get_money() < priceOfPlant || vec_PlayerAuction[p].get_passed())
-				vec_PlayerAuction.erase(vec_PlayerAuction.begin() + p);
+		for (int i = 0; i < playerAuction.size(); i++) {
+			if (playerAuction[i].get_money() < priceOfPlant || playerAuction[i].get_passed()) {
+				playerAuction.erase(playerAuction.begin() + i);
+			}
+		}
 
-		for (int p = 0; p < vec_PlayerAuction.size(); p++) {
-
-			Player PA = vec_PlayerAuction[p];
+		for (int i = 0; i < playerAuction.size(); i++) {
+			Player player = playerAuction[i];
 
 			// There are more players than 1 left in the auction
-			if (vec_PlayerAuction.size() > 1) {
-				std::cout << "Player name: " << PA.get_name() << std::endl;
+			if (playerAuction.size() > 1) {
+				std::cout << "Player name: " << player.get_name() << std::endl;
 
 				// Chech if player is a ai
-				if (PA.get_playerType() == Ai && !choosedPlant) aiAuction(PA, CPP.get_plantId(), priceOfPlant);
-				else if (PA.get_playerType() == Ai && choosedPlant) raisePriceOfPlant = 0;
+				if (player.get_playerType() == Ai && !choosedPlant) {
+					if (choosedPlant) {
+						raisePriceOfPlant = 0;
+					}
+					else {
+						aiAuction(player, powerplant.get_plantId(), priceOfPlant);
+					}
+				}
 
 				// If not ai then player is human
 				else {
-
 					// If the player has choosed the plant, they can raise by 0
-					if (choosedPlant) std::cout << "By how much do you want to raise?" << std::endl;
-					else std::cout << "By how much do you want to raise? 0 for pass" << std::endl;
+					if (choosedPlant) {
+						std::cout << "By how much do you want to raise?" << std::endl;
+					}
+
+					else {
+						std::cout << "By how much do you want to raise? 0 for pass" << std::endl;
+					}
 
 					std::cin >> raisePriceOfPlant;
 				}
 
 				// Remove player from auction if "pass"
 				if (raisePriceOfPlant == 0 && !choosedPlant) {
-					vec_PlayerAuction.erase(vec_PlayerAuction.begin() + p);
-					std::cout << PA.get_name() << " Passed!" << std::endl;
+					playerAuction.erase(playerAuction.begin() + i);
+					std::cout << player.get_name() << " Passed!" << std::endl;
 				}
 
 				// Chech if player have enough money
-				if (vec_Player[p].get_money() < priceOfPlant + raisePriceOfPlant) {
+				if (players[i].get_money() < priceOfPlant + raisePriceOfPlant) {
 					std::cout << "You dont have enough money for this!" << std::endl;
-					priceOfPlant += vec_Player[p].get_money();
+					priceOfPlant += players[i].get_money();
 				}
 
-				else priceOfPlant += raisePriceOfPlant;
-				std::cout << PA.get_name() << " Raised by: " << priceOfPlant - deltaPriceOfPlant << "!" << std::endl;
+				else {
+					priceOfPlant += raisePriceOfPlant;
+				}
+				std::cout << player.get_name() << " Raised by: " << priceOfPlant - deltaPriceOfPlant << "!" << std::endl;
 
 				choosedPlant = false;
 			}
+
 			// Only 1 player is left in the auction
-			else for (Player& P : vec_Player) if (vec_PlayerAuction[0].get_name() == P.get_name()) wonAuction(P, CPP, choosenPlant);
+			else {
+				for (Player& P : players) {
+					if (playerAuction[0].get_name() == P.get_name()) {
+						wonAuction(P, powerplant, choosenPlantID);
+					}
+				}
+			}
 		}
 	}
 }
 
 // Player won the auction
-void wonAuction(Player& P, Powerplant& CPP, int choosenPlant) {
-
+void wonAuction(Player& player, Powerplant& powerplant, int choosenPlantID) {
 	// Adds selectedPowerplant to player
-	P.add_playerPowerplant(CPP);
-	P.sort_playerPowerplant();
+	player.add_playerPowerplant(powerplant);
+	player.sort_playerPowerplant();
 
-	// Removes selectedPowerplant fromPowerplant marked
-	vec_powerplantMarked.erase(vec_powerplantMarked.begin() + choosenPlant);
+	// Removes selected Powerplant from Powerplant marked
+	powerplantMarked.erase(powerplantMarked.begin() + choosenPlantID);
 
 	system("CLS");
 
-	std::cout << P.get_name() << "You bougth thePowerplant for: " << priceOfPlant << " money" << std::endl;
+	std::cout << player.get_name() << "You bougth thePowerplant for: " << priceOfPlant << " money" << std::endl;
 
 	// Deducts price of selectedPowerplant, from player money
-	P.add_money(-priceOfPlant);
+	player.add_money(-priceOfPlant);
 
 	// Player cant bid again
-	P.set_passed(true);
+	player.set_passed(true);
 	passed++;
 
 	// Discard 1 plant if player has more than 3 plants.
-	if (P.get_vec_playerPowerplant().size() > 3) {
+	if (player.get_playerPowerplants().size() > 3) {
 
 		// Player is ai
-		if (P.get_playerType() == Ai)
+		if (player.get_playerType() == Ai)
 			/// aiDiscardPowerplant(Player & P);
 			;
 
 		// Player is human
-		else discardPowerplant(P);
+		else discardPowerplant(player);
 	}
 
 	// Exits auction
@@ -230,28 +246,30 @@ void wonAuction(Player& P, Powerplant& CPP, int choosenPlant) {
 }
 
 void discardPowerplant(Player& P) {
-
-	int cin_discardPowerplant;
-
-	std::cout << "You need to discard 1 Powerplant!" << std::endl;
-
-	// Prints player-Powerplant
-	for (Powerplant& PPP : P.get_vec_playerPowerplant()) {
-		uiPlantInfo(PPP);
+	// Chech if player is a ai
+	if (P.get_playerType() == Ai) {
+		aiDiscardPowerplant(P);
 	}
 
-	// Chech if player is a ai
-	if (P.get_playerType() == Ai) aiDiscardPowerplant(P);
+	else {
+		int discardPowerplantID;
 
-	std::cin >> cin_discardPowerplant;
+		std::cout << "You need to discard 1 Powerplant!" << std::endl;
 
-	for (int i = 0; i < P.get_vec_playerPowerplant().size(); i++) {
+		// Prints player-Powerplant
+		for (Powerplant& powerplant : P.get_playerPowerplants()) {
+			uiPlantInfo(powerplant);
+		}
 
-		Powerplant PPP = P.get_vec_playerPowerplant()[i];
+		std::cin >> discardPowerplantID;
 
-		if (cin_discardPowerplant == PPP.get_plantId()) {
-			std::cout << "Powerplant: " << PPP.get_plantId() << "has been discarded!" << std::endl;
-			P.remove_playerPowerplant(i);
+		for (int i = 0; i < P.get_playerPowerplants().size(); i++) {
+			Powerplant powerplant = P.get_playerPowerplants()[i];
+
+			if (discardPowerplantID == powerplant.get_plantId()) {
+				std::cout << "Powerplant: " << powerplant.get_plantId() << "has been discarded!" << std::endl;
+				P.remove_playerPowerplant(i);
+			}
 		}
 	}
 }

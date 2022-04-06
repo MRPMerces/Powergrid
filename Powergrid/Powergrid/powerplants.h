@@ -48,7 +48,7 @@ private:
 };
 
 //External dependencies
-extern std::vector <Powerplant> vec_Powerplant;
-extern std::vector <Powerplant> vec_powerplantMarked;
+extern std::vector <Powerplant> powerplants;
+extern std::vector <Powerplant> powerplantMarked;
 
 #endif

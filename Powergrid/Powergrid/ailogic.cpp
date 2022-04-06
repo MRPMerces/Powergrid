@@ -19,18 +19,18 @@ void aiAuction(Player& PA, int faceValue, int priceOfPlant) {
 void aiDiscardPowerplant(Player& P) {
 
 	int
-		lowestCitiesPowered = P.get_vec_playerPowerplant()[0].get_citiesPowered(),
+		lowestCitiesPowered = P.get_playerPowerplants()[0].get_citiesPowered(),
 		lowestCitiesPoweredPosition = 0;
 
-	for (int i = 0; i < P.get_vec_playerPowerplant().size(); i++) {
-		Powerplant PPP = P.get_vec_playerPowerplant()[i];
+	for (int i = 0; i < P.get_playerPowerplants().size(); i++) {
+		Powerplant PPP = P.get_playerPowerplants()[i];
 
 		if (lowestCitiesPowered > PPP.get_citiesPowered()) {
 			lowestCitiesPowered = PPP.get_citiesPowered();
 			lowestCitiesPoweredPosition = i;
 		}
 
-		if (i == P.get_vec_playerPowerplant().size() - 1) { // ?
+		if (i == P.get_playerPowerplants().size() - 1) { // ?
 			std::cout << "Powerplant: " << PPP.get_plantId() << "has been discarded!" << std::endl;
 			P.remove_playerPowerplant(lowestCitiesPoweredPosition);
 		}
@@ -48,7 +48,7 @@ int aiBuyCoalplant;
 
 	if (P.get_fuelStorage(Coal) / 2 - P.get_fuel(Coal) > 0) {
 		aiBuyCoalplant = P.get_fuelStorage(Coal) / 2 - P.get_fuel(Coal);
-		buyCoalplant(P, aiBuyCoalplant);
+		buyCoal(P, aiBuyCoalplant);
 	}
 
 	if (P.get_fuelStorage(Oil) / 2 - P.get_fuel(Oil) > 0) {

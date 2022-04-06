@@ -1,7 +1,18 @@
-﻿  stage2.cpp
-C:\Users\marcr\source\repos\Powergrid\Powergrid\stage2.cpp(93,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\marcr\source\repos\Powergrid\Powergrid\stage2.cpp(129,31): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\marcr\source\repos\Powergrid\Powergrid\stage2.cpp(165,35): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  vecpowerplants.cpp
+﻿  ailogic.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(25,20): warning C4018: '<': signed/unsigned mismatch
+  Powergrid.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Powergrid.cpp(7,2): warning C4551: function call missing argument list
+  stage1.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(30,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(30,55): warning C4806: '!=': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(72,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(143,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(149,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(266,21): warning C4018: '<': signed/unsigned mismatch
+  stage2.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(81,54): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(108,53): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(135,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  stage3.cpp
   Generating Code...
-  Powergrid.vcxproj -> C:\Users\marcr\source\repos\Powergrid\Debug\Powergrid.exe
+  Powergrid.vcxproj -> C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Debug\Powergrid.exe

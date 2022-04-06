@@ -71,7 +71,7 @@ public:
 
 
 	// Playerpowerplant vector
-	std::vector <Powerplant> get_vec_playerPowerplant() const;
+	std::vector <Powerplant> get_playerPowerplants() const;
 	void add_playerPowerplant(Powerplant pp);
 	void remove_playerPowerplant(int pos);
 	void sort_playerPowerplant();
@@ -111,6 +111,6 @@ int highestplantId(const Player& p);
 // Sorting algorithm for vec player
 bool comparator(const Player& player1, const Player& player2);
 
-extern std::vector <Player> vec_Player;
+extern std::vector <Player> players;
 
 #endif

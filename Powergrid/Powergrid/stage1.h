@@ -13,7 +13,7 @@
 #include <vector>
 
 void stage1();
-void powerplantMarked();
+void processPowerplantMarked();
 void choosePowerPlant();
 void auction(int choosenPlant);
 void wonAuction(Player& P, Powerplant& CPP, int choosenPlant);
