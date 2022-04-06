@@ -146,7 +146,6 @@ void Player::reset_totalPoweredCities() {
 	totalPoweredCities = 0;
 }
 
-// Cities powered
 int Player::get_citiesPowered() const {
 	return citiesPowered;
 }
@@ -159,16 +158,6 @@ void Player::reset_citiesPowered() {
 	citiesPowered = 0;
 }
 
-// Passed
-bool Player::get_passed() const {
-	return passed;
-}
-
-void Player::set_passed(bool p) {
-	passed = p;
-}
-
-// Playerpowerplant vector
 std::vector<Powerplant> Player::get_playerPowerplants() const {
 	return vec_playerPowerplant;
 }
@@ -220,18 +209,29 @@ void processPlayers() {
 // Update the fuel storage for every player
 void updatePlayerInfo() {
 
-	for (Player& P : players) {
-		P.reset_fuelStorage();
-		P.reset_totalPoweredCities();
-		P.reset_citiesPowered();
+	for (Player& player : players) {
+		player.reset_fuelStorage();
+		player.reset_totalPoweredCities();
+		player.reset_citiesPowered();
 
-		for (Powerplant& PPP : P.get_playerPowerplants()) {
-			if (PPP.get_FuelType() == Coalplant) P.add_fuelStorage(Coal, PPP.get_fuelUsage() * 2);
-			if (PPP.get_FuelType() == Oil) P.add_fuelStorage(Oil, PPP.get_fuelUsage() * 2);
-			if (PPP.get_FuelType() == Garbage) P.add_fuelStorage(Garbage, PPP.get_fuelUsage() * 2);
-			if (PPP.get_FuelType() == Uranium) P.add_fuelStorage(Uranium, PPP.get_fuelUsage() * 2);
+		for (Powerplant& powerplant : player.get_playerPowerplants()) {
+			if (powerplant.get_FuelType() == Coalplant) {
+				player.add_fuelStorage(Coal, powerplant.get_fuelUsage() * 2);
+			}
 
-			P.add_totalPoweredCities(PPP.get_citiesPowered());
+			if (powerplant.get_FuelType() == Oil) {
+				player.add_fuelStorage(Oil, powerplant.get_fuelUsage() * 2);
+			}
+
+			if (powerplant.get_FuelType() == Garbage) {
+				player.add_fuelStorage(Garbage, powerplant.get_fuelUsage() * 2);
+			}
+
+			if (powerplant.get_FuelType() == Uranium) {
+				player.add_fuelStorage(Uranium, powerplant.get_fuelUsage() * 2);
+			}
+
+			player.add_totalPoweredCities(powerplant.get_citiesPowered());
 		}
 	}
 }
@@ -240,14 +240,19 @@ void updatePlayerInfo() {
 int highestplantId(const Player& p) {
 	int highestPlayerplantId = 0;
 
-	for (Powerplant& PPP : p.get_playerPowerplants())
-		if (highestPlayerplantId < PPP.get_plantId())
-			highestPlayerplantId = PPP.get_plantId();
+	for (Powerplant& powerplant : p.get_playerPowerplants()) {
+		if (highestPlayerplantId < powerplant.get_plantId()) {
+			highestPlayerplantId = powerplant.get_plantId();
+		}
+	}
+
 	return highestPlayerplantId;
 }
 
 // Sorting algorithm for vec player
 bool comparator(const Player& player1, const Player& player2) {
-	if (player1.get_numberOfCities() != player2.get_numberOfCities()) return player1.get_numberOfCities() > player2.get_numberOfCities();
+	if (player1.get_numberOfCities() != player2.get_numberOfCities()) {
+		return player1.get_numberOfCities() > player2.get_numberOfCities();
+	}
 	return highestplantId(player1) > highestplantId(player2);
 }

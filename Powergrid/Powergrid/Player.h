@@ -65,11 +65,6 @@ public:
 	// Reset the fuel storage
 	void reset_fuelStorage();
 
-	// Passed
-	bool get_passed()const;
-	void set_passed(bool p);
-
-
 	// Playerpowerplant vector
 	std::vector <Powerplant> get_playerPowerplants() const;
 	void add_playerPowerplant(Powerplant pp);
@@ -96,8 +91,6 @@ private:
 	int centrifuges = 0;
 	int totalPoweredCities = 0;
 	int citiesPowered = 0;
-
-	bool passed = false;
 
 	std::vector <Powerplant> vec_playerPowerplant;
 };
