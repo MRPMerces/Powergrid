@@ -4,8 +4,8 @@ const std::string textDivider = "============================================";
 
 int main() {
 	// Setup code that runs once
-	powerPlants;
-	players;
+	powerPlants();
+	processPlayers();
 
 	while (true) {
 		stage1();

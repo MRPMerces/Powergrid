@@ -1,27 +1,5 @@
-﻿  Player.cpp
-  Powergrid.cpp
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Powergrid.cpp(7,2): warning C4551: function call missing argument list
-  ailogic.cpp
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(25,20): warning C4018: '<': signed/unsigned mismatch
-  stage1.cpp
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(24,33): warning C4018: '<': signed/unsigned mismatch
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(24,55): warning C4806: '!=': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(98,44): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(100,33): error C2664: 'void auction(int)': cannot convert argument 1 from '_Ty' to 'int'
-          with
-          [
-              _Ty=Powerplant
-          ]
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(100,32): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.h(18,6): message : see declaration of 'auction'
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(190,51): error C2660: 'wonAuction': function does not take 2 arguments
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.h(19,6): message : see declaration of 'wonAuction'
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(244,21): warning C4018: '<': signed/unsigned mismatch
-  stage2.cpp
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(81,54): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(108,53): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(135,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  stage3.cpp
-  stage4.cpp
-  ui.cpp
-  Generating Code...
+﻿  stage1.cpp
+C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(24,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(130,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(248,21): warning C4018: '<': signed/unsigned mismatch
+  Powergrid.vcxproj -> C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Debug\Powergrid.exe

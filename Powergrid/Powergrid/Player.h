@@ -71,6 +71,11 @@ public:
 	void remove_playerPowerplant(int pos);
 	void sort_playerPowerplant();
 
+	// Overload == operator
+	bool operator == (const Player& rhs) {
+		return (name == rhs.get_name());
+	}
+
 private:
 
 	std::string name;

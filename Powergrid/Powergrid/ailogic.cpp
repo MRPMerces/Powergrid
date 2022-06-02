@@ -5,9 +5,6 @@ bool raise;
 //Ai desition when auctioning
 void aiAuction(Player& PA, int faceValue, int priceOfPlant) {
 
-
-
-
 	//If the current price of plant is less than the facevalue (get_plantId()) +5, then raise by 1
 	if (priceOfPlant < faceValue + 5 && PA.get_money() > 0) raisePriceOfPlant++;
 
@@ -18,9 +15,8 @@ void aiAuction(Player& PA, int faceValue, int priceOfPlant) {
 
 void aiDiscardPowerplant(Player& P) {
 
-	int
-		lowestCitiesPowered = P.get_playerPowerplants()[0].get_citiesPowered(),
-		lowestCitiesPoweredPosition = 0;
+	int lowestCitiesPowered = P.get_playerPowerplants()[0].get_citiesPowered();
+	int lowestCitiesPoweredPosition = 0;
 
 	for (int i = 0; i < P.get_playerPowerplants().size(); i++) {
 		Powerplant PPP = P.get_playerPowerplants()[i];
@@ -41,10 +37,10 @@ void aiDiscardPowerplant(Player& P) {
 }
 
 void aiBuyFuel(Player& P) {
-int aiBuyCoalplant;
-		int aiBuyOil;
-		int aiBuyGarbage;
-		int aiBuyUranium;
+	int aiBuyCoalplant;
+	int aiBuyOil;
+	int aiBuyGarbage;
+	int aiBuyUranium;
 
 	if (P.get_fuelStorage(Coal) / 2 - P.get_fuel(Coal) > 0) {
 		aiBuyCoalplant = P.get_fuelStorage(Coal) / 2 - P.get_fuel(Coal);

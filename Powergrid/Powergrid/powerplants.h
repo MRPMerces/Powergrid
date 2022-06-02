@@ -17,7 +17,7 @@ enum PlantType { Coalplant, Oilplant, Hybridplant, Garbageplant, Nuclearplant, W
 
 class Powerplant {
 public:
-
+	Powerplant();
 	Powerplant(Fuel fuel, PlantType type, int plantId, int citiesPowered);
 	// Fuel type
 	FuelType get_FuelType() const;
@@ -35,7 +35,7 @@ public:
 
 	// Overload < operator, to sort
 	bool operator < (const Powerplant& Powerplant) const {
-		return (get_plantId() < Powerplant.get_plantId());
+		return (plantId < Powerplant.get_plantId());
 	}
 
 private:

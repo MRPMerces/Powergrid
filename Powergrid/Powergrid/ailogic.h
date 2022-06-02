@@ -17,8 +17,7 @@ void aiBuyFuel(Player& P);
 void aiBuyCities(Player& P);
 
 //External dependencies
-extern  int
-cin_powerPlantChoose,
-raisePriceOfPlant;
+extern  int cin_powerPlantChoose;
+extern  int raisePriceOfPlant;
 
 #endif

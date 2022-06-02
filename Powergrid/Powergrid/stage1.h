@@ -11,12 +11,13 @@
 #include "Player.h"
 #include "ailogic.h"
 #include <vector>
+#include <algorithm>
 
 void stage1();
 void processPowerplantMarked();
 void choosePowerPlant();
-void auction(int choosenPlant);
-void wonAuction(Player& P, Powerplant& CPP, int choosenPlant);
+void auction(Powerplant& choosenPlant);
+void wonAuction(Player& P, Powerplant& CPP);
 void discardPowerplant(Player& P);
 
 //External dependencies

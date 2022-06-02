@@ -1,7 +1,6 @@
 #include "stage1.h"
 
 int raisePriceOfPlant;
-int mostPowerfullPowerplant = 0;
 int priceOfPlant;
 
 Player playerChoosedPlant;
@@ -12,6 +11,7 @@ std::vector <Player> passedPlayers;
 // Stage 1 buyPowerplant
 void stage1() {
 	while (passedPlayers.size() < players.size()) {
+		processPowerplantMarked();
 		choosePowerPlant();
 	}
 
@@ -21,7 +21,7 @@ void stage1() {
 
 void processPowerplantMarked() {
 	// Repopulate thePowerplant marked whith Powerplants acording to the era
-	while (powerplantMarked.size() < game.get_era() != 3 ? 8 : 6) {
+	while (powerplantMarked.size() < (game.get_era() != 3 ? 8 : 6)) {
 		powerplantMarked.push_back(powerplants[0]);
 		powerplants.erase(powerplants.begin());
 	}
@@ -33,14 +33,9 @@ void processPowerplantMarked() {
 	std::cout << textDivider << std::endl;
 	std::cout << "Current market" << std::endl;
 
+	// Print some Powerplant stats
 	for (int i = 0; i < 8; i++) {
 		Powerplant powerplant = powerplantMarked[i];
-
-		// Find some Powerplant stats
-		if (i <= 3 && powerplant.get_citiesPowered() > powerplants[mostPowerfullPowerplant].get_citiesPowered()) {
-			mostPowerfullPowerplant = i;
-		}
-
 		if (i == 4) {
 			std::cout << "Future market" << std::endl;
 		}
@@ -59,9 +54,9 @@ void processPowerplantMarked() {
 	}
 }
 
-// Choosing a powerplanbt to auction
+// Choosing a powerplant to auction
 void choosePowerPlant() {
-	for (Player& player : players) {
+	for (Player player : players) {
 		if (!(std::find(passedPlayers.begin(), passedPlayers.end(), player) != passedPlayers.end())) {
 
 			// Chech if player have enough money
@@ -77,6 +72,14 @@ void choosePowerPlant() {
 
 			// Player is ai
 			if (player.get_playerType() == Ai) {
+				Powerplant mostPowerfullPowerplant = powerplantMarked[0];
+				for (int i = 0; i < 4; i++) {
+					// Find some Powerplant stats
+					if (powerplantMarked[i].get_citiesPowered() > mostPowerfullPowerplant.get_citiesPowered()) {
+						mostPowerfullPowerplant = powerplantMarked[i];
+					}
+				}
+
 				auction(mostPowerfullPowerplant);
 				return;
 			}
@@ -95,7 +98,7 @@ void choosePowerPlant() {
 				continue;
 			}
 
-			for (int i = 0; i < game.get_era() == 3 ? 4 : 6; i++) {
+			for (int i = 0; i < (game.get_era() == 3 ? 4 : 6); i++) {
 				if (chosenPlantID == powerplantMarked[i].get_plantId()) {
 					auction(powerplantMarked[i]);
 
@@ -124,10 +127,11 @@ void auction(Powerplant& choosenPowerplant) {
 	std::cout << "Auction for plant: " << choosenPowerplant.get_plantId() << std::endl;
 
 	// Check if player can partake in auction and then remove the player if they cant
-	for (std::vector<Player>::iterator player = playerAuction.begin(); player != playerAuction.end(); player++) {
-		if (player->get_money() < priceOfPlant || (std::find(passedPlayers.begin(), passedPlayers.end(), player) != passedPlayers.end())) {
-			playerAuction.erase(player);
-			player--;
+	for (int i = 0; i < playerAuction.size(); i++) {
+		/// Unsafe?
+		if (playerAuction[i].get_money() < priceOfPlant || (std::find(passedPlayers.begin(), passedPlayers.end(), playerAuction[i]) != passedPlayers.end())) {
+			playerAuction.erase(playerAuction.begin() + i);
+			i--;
 		}
 	}
 
