@@ -15,6 +15,7 @@
 
 void stage1();
 void processPowerplantMarked();
+void newchoosePowerPlant();
 void choosePowerPlant();
 void auction(Powerplant& choosenPlant);
 void wonAuction(Player& P, Powerplant& CPP);

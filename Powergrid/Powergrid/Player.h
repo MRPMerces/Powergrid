@@ -17,20 +17,20 @@
  // External dependencies
 extern const std::string textDivider;
 
-enum playerType { Human, Ai };
+enum PlayerType { Human, Ai };
 
 class Player {
 public:
 
 	Player();
 	// Constructor
-	Player(const std::string& name, playerType type);
+	Player(const std::string& name, PlayerType type);
 
 	// Name
 	std::string get_name() const;
 
 	// Playertype
-	playerType get_playerType() const;
+	PlayerType get_playerType() const;
 
 	// Money
 	int get_money() const;
@@ -79,7 +79,7 @@ public:
 private:
 
 	std::string name;
-	playerType type;
+	PlayerType type;
 
 	Fuel coal = Fuel(Coal, 0);
 	Fuel oil = Fuel(Oil, 0);

@@ -3,7 +3,7 @@
 std::vector <Player> players;
 
 // Constructor
-Player::Player(const std::string& name, playerType type) {
+Player::Player(const std::string& name, PlayerType type) {
 	this->name = name;
 	this->type = type;
 }
@@ -16,7 +16,7 @@ std::string Player::get_name() const {
 }
 
 // Playertype
-playerType Player::get_playerType() const {
+PlayerType Player::get_playerType() const {
 	return type;
 }
 
@@ -164,10 +164,12 @@ std::vector<Powerplant> Player::get_playerPowerplants() const {
 
 void Player::add_playerPowerplant(Powerplant pp) {
 	vec_playerPowerplant.push_back(pp);
+	sort_playerPowerplant();
 }
 
 void Player::remove_playerPowerplant(int pos) {
 	vec_playerPowerplant.erase(vec_playerPowerplant.begin() + pos);
+	sort_playerPowerplant();
 }
 
 void Player::sort_playerPowerplant() {
