@@ -8,8 +8,6 @@
 
 class Game {
 public:
-
-	// Constructor
 	Game();
 
 	// Cities

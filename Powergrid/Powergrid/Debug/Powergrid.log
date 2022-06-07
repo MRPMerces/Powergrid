@@ -1,12 +1,18 @@
-﻿  Powergrid.cpp
+﻿  Game.cpp
+  Player.cpp
+  Powergrid.cpp
+  ailogic.cpp
+C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\ailogic.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
   stage1.cpp
 C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(26,33): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(193,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(311,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(128,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(248,20): warning C4018: '<': signed/unsigned mismatch
   stage2.cpp
 C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage2.cpp(81,54): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage2.cpp(108,53): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage2.cpp(135,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  stage3.cpp
+  stage4.cpp
   ui.cpp
   Generating Code...
   Powergrid.vcxproj -> C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Debug\Powergrid.exe
