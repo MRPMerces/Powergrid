@@ -14,7 +14,7 @@ void stage1() {
 	playersInAuction = players;
 	while (passedPlayers.size() < players.size()) {
 		processPowerplantMarked();
-		newchoosePowerPlant();
+		choosePowerPlant();
 	}
 
 	passedPlayers.clear();
@@ -23,20 +23,20 @@ void stage1() {
 
 void processPowerplantMarked() {
 	// Repopulate the Powerplant marked whith Powerplants acording to the era
-	while (powerplantMarked.size() < (game.get_era() != 3 ? 8 : 6)) {
-		powerplantMarked.push_back(powerplants[0]);
-		powerplants.erase(powerplants.begin());
+	while (game.powerplantMarked.size() < (game.get_era() != 3 ? 8 : 6)) {
+		game.powerplantMarked.push_back(game.powerplants[0]);
+		game.powerplants.erase(game.powerplants.begin());
 	}
 
 	// Sort the PowerplantMarked from lowest to highest plant id
-	sort(powerplantMarked.begin(), powerplantMarked.end());
+	sort(game.powerplantMarked.begin(), game.powerplantMarked.end());
 
 	// Prints the Powerplant marked
 	std::cout << textDivider << std::endl;
 	std::cout << "Current market" << std::endl;
 
 	for (int i = 0; i < 8; i++) {
-		Powerplant powerplant = powerplantMarked[i];
+		Powerplant powerplant = game.powerplantMarked[i];
 		if (i == 4) {
 			std::cout << "Future market" << std::endl;
 		}
@@ -45,7 +45,7 @@ void processPowerplantMarked() {
 		if (powerplant.get_plantId() == 0 && game.get_era() == 2) {
 			game.set_eraChange(true);
 			std::cout << "Era 3 is triggered!" << std::endl;
-			powerplantMarked.erase(powerplantMarked.begin() + i);
+			game.powerplantMarked.erase(game.powerplantMarked.begin() + i);
 		}
 
 		std::cout << textDivider << std::endl;
@@ -56,10 +56,10 @@ void processPowerplantMarked() {
 }
 
 // Choosing a powerplant to auction
-void newchoosePowerPlant() {
+void choosePowerPlant() {
 	for (std::vector<Player>::iterator player = playersInAuction.begin(); player != playersInAuction.end(); player++) {
 		// Chech if player have enough money
-		if (player->get_money() < powerplantMarked[0].get_plantId()) {
+		if (player->get_money() < game.powerplantMarked[0].get_plantId()) {
 			system("CLS");
 			std::cout << player->get_name() << " You dont have enouth money to buy a plant!" << std::endl;
 			playersInAuction.erase(player);
@@ -71,19 +71,11 @@ void newchoosePowerPlant() {
 
 		// Player is ai
 		if (player->get_playerType() == Ai) {
-			Powerplant mostPowerfullPowerplant = powerplantMarked[0];
-			for (int i = 0; i < 4; i++) {
-				// Find some Powerplant stats
-				if (powerplantMarked[i].get_citiesPowered() > mostPowerfullPowerplant.get_citiesPowered()) {
-					mostPowerfullPowerplant = powerplantMarked[i];
-				}
-			}
-
-			auction(mostPowerfullPowerplant);
+			ai_auctionstage1();
 			return;
 		}
-
 		// Player is human
+
 		std::cout << "Player money: " << player->get_money() << std::endl;
 		std::cout << "Player name: " << player->get_name() << std::endl;
 
@@ -94,24 +86,25 @@ void newchoosePowerPlant() {
 		// Player cant bid again if passed.
 		if (chosenPlantID == 0) {
 			playersInAuction.erase(player);
+			player->passed = true;
 			continue;
 		}
 
 		for (int i = 0; i < (game.get_era() == 3 ? 4 : 6); i++) {
-			if (chosenPlantID == powerplantMarked[i].get_plantId()) {
-				auction(powerplantMarked[i]);
+			if (chosenPlantID == game.powerplantMarked[i].get_plantId()) {
+				auction(game.powerplantMarked[i]);
 
 				// Removes selected Powerplant from Powerplant marked.
-				powerplantMarked.erase(powerplantMarked.begin() + i);
+				game.powerplantMarked.erase(game.powerplantMarked.begin() + i);
 
 				processPowerplantMarked();
 				break;
 			}
 
-			// A different plant id was chosen than the 4 in the current market.
-			if (i == 3) {
+			// A different plant id was chosen than the once in the current market.
+			if (i == (game.get_era() == 3 ? 4 : 6)) {
 				std::cout << "Bad plant id" << std::endl;
-				newchoosePowerPlant();
+				choosePowerPlant();
 			}
 		}
 	}
@@ -129,6 +122,7 @@ void auction(Powerplant& choosenPowerplant) {
 		/// Unsafe?
 		if (playerAuction[i].get_money() < priceOfPlant || (std::find(passedPlayers.begin(), passedPlayers.end(), playerAuction[i]) != passedPlayers.end())) {
 			playerAuction.erase(playerAuction.begin() + i);
+			playerAuction[i].passed = true;
 			i--;
 		}
 	}

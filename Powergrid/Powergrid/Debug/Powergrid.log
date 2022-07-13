@@ -1,18 +1,185 @@
-﻿  Game.cpp
+﻿  ailogic.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(7,62): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(7,62): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(10,6): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(10,6): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(11,53): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(11,53): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\ailogic.cpp(34,20): warning C4018: '<': signed/unsigned mismatch
+  Game.cpp
   Player.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
   Powergrid.cpp
-  ailogic.cpp
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\ailogic.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+  powerplants.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
   stage1.cpp
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(26,33): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(128,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage1.cpp(248,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(26,36): error C2662: 'allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type std::vector<_Ty,_Alloc>::size(void) noexcept const': cannot convert 'this' pointer from 'std::vector' to 'const std::vector<_Ty,_Alloc> &'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(26,36): message : Reason: cannot convert from 'std::vector' to 'const std::vector<_Ty,_Alloc>'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(26,13): message : Conversion requires a second user-defined-conversion operator or constructor
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1482,26): message : see declaration of 'std::vector<_Ty,_Alloc>::size'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(27,53): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(27,53): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(27,24): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(28,42): error C2663: 'std::vector<_Ty,_Alloc>::begin': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(28,19): error C2663: 'std::vector<_Ty,_Alloc>::erase': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(32,28): error C2663: 'std::vector<_Ty,_Alloc>::begin': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(32,59): error C2663: 'std::vector<_Ty,_Alloc>::end': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(32,2): error C3861: 'sort': identifier not found
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(39,50): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(39,50): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(48,53): error C2663: 'std::vector<_Ty,_Alloc>::begin': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(48,25): error C2663: 'std::vector<_Ty,_Alloc>::erase': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(62,6): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(62,6): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(94,7): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(94,7): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(95,36): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::vector' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1507,27): message : could be 'const _Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept const'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(1497,21): message : or       '_Ty &std::vector<_Ty,_Alloc>::operator [](const allocator_traits<allocator_traits<_Alloc>::rebind_alloc<_Ty>>::size_type) noexcept'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(95,36): message : while trying to match the argument list '(std::vector, int)'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(98,54): error C2663: 'std::vector<_Ty,_Alloc>::begin': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(98,26): error C2663: 'std::vector<_Ty,_Alloc>::erase': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(121,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage1.cpp(242,20): warning C4018: '<': signed/unsigned mismatch
   stage2.cpp
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage2.cpp(81,54): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage2.cpp(108,53): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Powergrid\stage2.cpp(135,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(81,54): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(108,53): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage2.cpp(135,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   stage3.cpp
   stage4.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(134,3): error C2065: 'powerplants': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(134,25): error C2065: 'powerplantMarked': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(134,42): error C2065: 'powerplantMarked': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(135,3): error C2065: 'powerplantMarked': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(135,26): error C2065: 'powerplantMarked': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(136,3): error C2065: 'powerplantMarked': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(136,30): error C2065: 'powerplants': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(137,3): error C2065: 'powerplants': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(137,21): error C2065: 'powerplants': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(142,3): error C2065: 'powerplantMarked': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(142,26): error C2065: 'powerplants': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(143,3): error C2065: 'powerplantMarked': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\stage4.cpp(143,30): error C2065: 'powerplants': undeclared identifier
   ui.cpp
+  vecpowerplants.cpp
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(63,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,15): error C2065: 'Powerplant': undeclared identifier
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2923: 'std::vector': 'Powerplant' is not a valid template type argument for parameter '_Ty'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\Game.h(64,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(5,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(8,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(11,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(14,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(17,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(20,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(23,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(26,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(29,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(32,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(35,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(38,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(41,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(44,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(47,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(50,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(53,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(56,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(59,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(62,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(65,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(68,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(71,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(74,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(77,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(80,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(83,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(86,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(89,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(92,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(95,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(98,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(101,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,10): error C2672: 'begin': no matching overloaded function found
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,32): error C2893: Failed to specialize function template 'unknown-type std::begin(_Container &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(2097): message : see declaration of 'std::begin'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,32): message : With the following template arguments:
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,32): message : '_Container=std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,32): error C2784: 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'std::vector'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\initializer_list(57): message : see declaration of 'std::begin'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,35): error C2672: 'end': no matching overloaded function found
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,55): error C2893: Failed to specialize function template 'unknown-type std::end(_Container &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(2107): message : see declaration of 'std::end'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,55): message : With the following template arguments:
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,55): message : '_Container=std::vector'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,55): error C2784: 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'std::vector'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\initializer_list(63): message : see declaration of 'std::end'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,2): error C2672: 'shuffle': no matching overloaded function found
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(104,86): error C2780: 'void std::shuffle(_RanIt,_RanIt,_Urng &&)': expects 3 arguments - 2 provided
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\algorithm(2854): message : see declaration of 'std::shuffle'
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(107,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(110,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(113,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(116,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(119,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(122,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(125,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(128,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(131,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
+C:\Users\marcr\OneDrive\Dokumenter\GitHub\Powergrid\Powergrid\Powergrid\vecpowerplants.cpp(134,18): error C2663: 'std::vector<_Ty,_Alloc>::push_back': 2 overloads have no legal conversion for 'this' pointer
   Generating Code...
-  Powergrid.vcxproj -> C:\Users\Windows User\Documents\GIT\Powergrid\Powergrid\Debug\Powergrid.exe

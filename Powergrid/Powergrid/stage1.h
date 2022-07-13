@@ -10,12 +10,13 @@
 #include "Game.h"
 #include "Player.h"
 #include "ailogic.h"
+
 #include <vector>
 #include <algorithm>
 
 void stage1();
 void processPowerplantMarked();
-void newchoosePowerPlant();
+void choosePowerPlant();
 void choosePowerPlant();
 void auction(Powerplant& choosenPlant);
 void wonAuction(Player& P, Powerplant& CPP);

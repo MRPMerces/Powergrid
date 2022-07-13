@@ -1,5 +1,9 @@
 #include "Powerplants.h"
 
+Powerplant::Powerplant()
+{
+}
+
 Powerplant::Powerplant(Fuel fuel, PlantType type, int plantId, int citiesPowered) {
 	this->fuel = fuel;
 	this->type = type;

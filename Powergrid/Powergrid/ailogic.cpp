@@ -2,6 +2,19 @@
 
 bool raise;
 
+void ai_auctionstage1()
+{
+	Powerplant mostPowerfullPowerplant = game.powerplantMarked[0];
+	for (int i = 0; i < 4; i++) {
+		// Find some Powerplant stats
+		if (game.powerplantMarked[i].get_citiesPowered() > mostPowerfullPowerplant.get_citiesPowered()) {
+			mostPowerfullPowerplant = game.powerplantMarked[i];
+		}
+	}
+
+	auction(mostPowerfullPowerplant);
+}
+
 //Ai desition when auctioning
 void aiAuction(Player& PA, int faceValue, int priceOfPlant) {
 

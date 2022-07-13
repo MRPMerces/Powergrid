@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <random>
 #include "Fuel.h"
+#include "Game.h"
 
 void powerPlants();
 void markedPowerplants();
@@ -19,6 +20,7 @@ class Powerplant {
 public:
 	Powerplant();
 	Powerplant(Fuel fuel, PlantType type, int plantId, int citiesPowered);
+
 	// Fuel type
 	FuelType get_FuelType() const;
 
@@ -46,9 +48,5 @@ private:
 	int plantId;
 	int citiesPowered;
 };
-
-//External dependencies
-extern std::vector <Powerplant> powerplants;
-extern std::vector <Powerplant> powerplantMarked;
 
 #endif

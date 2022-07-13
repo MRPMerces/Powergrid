@@ -6,6 +6,9 @@
 #ifndef Game_H_
 #define Game_H_
 
+#include <vector>
+#include "powerplants.h"
+
 class Game {
 public:
 	Game();
@@ -56,6 +59,9 @@ public:
 	bool get_winCondition() const;
 	void set_winCondition(bool wc);
 
+	std::vector <Powerplant> powerplants;
+	std::vector <Powerplant> powerplantMarked;
+
 private:
 
 	int
@@ -68,14 +74,11 @@ private:
 		amountOfOil = 0,
 		amountOfGarbage = 0,
 		amountOfUranium = 0,
-		// Era
+
 		era = 0;
 
-	// Change era
-	bool
-		eraChange,
-		//winCondition
-		winCondition;
+	bool eraChange;
+	bool winCondition;
 
 };
 
